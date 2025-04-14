@@ -10,7 +10,7 @@ export default function BranchOrb({ position, label, color, info }) {
   useFrame((state) => {
     const time = state.clock.getElapsedTime()
     meshRef.current.position.y = position[1] + Math.sin(time * 2) * 0.2
-    meshRef.current.rotation.x = meshRef.current.rotation.y += 0.01
+    meshRef.current.rotation.y += 0.02
   })
 
   return (
