@@ -26,10 +26,6 @@ export default function IranSystem() {
           info={layer.info}
         />
       ))}
-      
-      <Text position={[0, -3, 0]} color="gold" fontSize={0.5} >
-        Iran's Political System (Hierarchical)
-      </Text>
     </group>
   )
 }

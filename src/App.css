@@ -67,11 +67,11 @@
   font-size: 1.2rem;
   line-height: 1.6;
   margin-bottom: 2rem;
+  max-width: 600px;
 }
 
 .features {
   text-align: left;
-  max-width: 500px;
   margin: 0 auto;
 }
 

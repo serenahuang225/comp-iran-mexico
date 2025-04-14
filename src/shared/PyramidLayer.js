@@ -17,9 +17,13 @@ export default function PyramidLayer({ position, size, label, color, info }) {
         />
       </mesh>
       
-      <Text position={[0, size[1]/2 + 0.3, 0]} color="white" fontSize={0.3}>
+      <Text color="white" fontSize={0.3} position={[0, size[1]/2 + 0.3, size[1]/2]}>
         {label}
       </Text>
+
+      {/* <Html center position={[0, size[1]/2 + 0.3, 0]} >
+        <p style={{color: 'white'}}>{label}</p>
+      </Html> */}
       
       {active && (
         <InfoPanel 

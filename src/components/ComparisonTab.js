@@ -1,16 +1,16 @@
 import { useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
-import { Text, Html } from '@react-three/drei'
+import { Text, Html, OrbitControls } from '@react-three/drei'
 import * as THREE from 'three'
+
 export default function ComparisonTab() {
   return (
     <Canvas camera={{ position: [0, 0, 15], fov: 50 }}>
+      <OrbitControls enableZoom={false} />
       <RotatingGroup />
     </Canvas>
   )
 }
-
-
 
 function RotatingGroup() {
   const groupRef = useRef()
@@ -24,7 +24,7 @@ function RotatingGroup() {
   return (
     <group ref={groupRef}>
       {/* Title */}
-      <Html wrapperClass="comparison-title" position={[0, 5, 0]}>
+      <Html wrapperClass="comparison-title" position={[-5, -5, 0]}>
         <h1>Political Culture Comparison</h1>
       </Html>
 

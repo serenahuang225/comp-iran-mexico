@@ -25,10 +25,6 @@ export default function MexicoSystem() {
           info={branch.info}
         />
       ))}
-      
-      <Text position={[0, -3, 0]} color="gold" fontSize={0.5}>
-        Mexico's Political System
-      </Text>
     </group>
   )
 }

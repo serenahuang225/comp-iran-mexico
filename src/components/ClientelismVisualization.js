@@ -53,17 +53,12 @@ export default function ClientelismVisualization() {
 
   useFrame(() => {
     // Fade in when scrolling to this section
-    groupRef.current.visible = scroll.offset > 0.3
-    groupRef.current.position.y = 10 - (scroll.offset * 20) // Smooth transition
+    groupRef.current.visible = scroll.offset > 0.5
+    groupRef.current.position.y = 5 - scroll.offset * 20 // Smooth transition
   })
 
   return (
-    <group ref={groupRef} position={[0, -1, 0]}>
-      <Html wrapperClass="comparison-title" position={[0, 4, 0]}>
-        <h1>Mexican Clientelism Networks</h1>
-      </Html>
-      
-      {/* Elites (gold spheres) */}
+    <group ref={groupRef} position={[0, 0, 0]}>
       {elites.map((elite) => (
         <group key={elite.id}>
           <mesh 
@@ -102,6 +97,7 @@ export default function ClientelismVisualization() {
             />
           </mesh>
           {highlightedNode?.id === citizen.id && (
+            
             <Text
               position={[citizen.position[0], citizen.position[1] + 0.3, citizen.position[2]]}
               color="white"
@@ -125,7 +121,7 @@ export default function ClientelismVisualization() {
           <Line
             key={i}
             points={[conn.from, conn.to]}
-            color={isHighlighted ? 'white' : '#555555'}
+            color={isHighlighted ? 'gold' : 'white'}
             opacity={isHighlighted ? 0.8 : 0.2}
             transparent
             lineWidth={isHighlighted ? 2 : 1}

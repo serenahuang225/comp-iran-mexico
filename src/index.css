@@ -93,10 +93,10 @@ button.hover {
   text-align: center;
   font-size: 2rem;
   text-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  border: 1px solid #ff0000;
   background: rgba(0, 0, 0, 0.7);
   padding: 1rem 2rem;
   border-radius: 10px;
-  border: 1px solid #ff0000;
 }
 
 /* Scroll indicator */
@@ -120,7 +120,7 @@ button.hover {
   width: 100%;
   text-align: center;
   color: white;
-  font-size: 2rem;
+  font-size: 1rem;
   text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
 }
 
