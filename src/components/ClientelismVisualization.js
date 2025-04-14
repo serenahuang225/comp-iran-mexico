@@ -1,9 +1,9 @@
 import { useRef, useMemo, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { Text, Line } from '@react-three/drei'
+import { Text, Line, useScroll, Html } from '@react-three/drei'
 import * as THREE from 'three'
 
-export function ClientelismVisualization() {
+export default function ClientelismVisualization() {
   const [highlightedNode, setHighlightedNode] = useState(null)
   const { elites, citizens, connections } = useMemo(() => {
     // Create simulation data
@@ -48,11 +48,20 @@ export function ClientelismVisualization() {
     return { elites, citizens, connections }
   }, [])
 
+  const scroll = useScroll()
+  const groupRef = useRef()
+
+  useFrame(() => {
+    // Fade in when scrolling to this section
+    groupRef.current.visible = scroll.offset > 0.3
+    groupRef.current.position.y = 10 - (scroll.offset * 20) // Smooth transition
+  })
+
   return (
-    <group position={[0, -1, 0]}>
-      <Text position={[0, 4, 0]} color="#00a2ff" fontSize={0.6}>
-        Mexican Clientelism Networks
-      </Text>
+    <group ref={groupRef} position={[0, -1, 0]}>
+      <Html wrapperClass="comparison-title" position={[0, 4, 0]}>
+        <h1>Mexican Clientelism Networks</h1>
+      </Html>
       
       {/* Elites (gold spheres) */}
       {elites.map((elite) => (
@@ -70,14 +79,9 @@ export function ClientelismVisualization() {
             />
           </mesh>
           {highlightedNode?.id === elite.id && (
-            <Text
-              position={[elite.position[0], elite.position[1] + 0.5, elite.position[2]]}
-              color="white"
-              fontSize={0.3}
-              anchorX="center"
-            >
-              {elite.name}
-            </Text>
+            <Html position={[elite.position[0], elite.position[1] + 0.5, elite.position[2]]}>
+              <p style={{color: 'white'}}>{elite.name}</p>
+            </Html>
           )}
         </group>
       ))}

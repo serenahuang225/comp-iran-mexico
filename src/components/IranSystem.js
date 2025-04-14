@@ -1,8 +1,8 @@
 import { useRef } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { Text } from '@react-three/drei'
-import PyramidLayer from './shared/PyramidLayer'
-import { IRAN_LAYERS } from './shared/data'
+import PyramidLayer from '../shared/PyramidLayer'
+import { IRAN_LAYERS } from '../shared/data'
 
 export default function IranSystem() {
   const pyramidRef = useRef()
